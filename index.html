@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gates Explorer 🔌</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <h1>Logic Gates Explorer 🔌</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#and-gate">AND</a>
+                <a href="#or-gate">OR</a>
+                <a href="#not-gate">NOT</a>
+                <a href="#nand-gate">NAND</a>
+                <a href="#nor-gate">NOR</a>
+                <a href="#xor-gate">XOR</a>
+                <a href="#xnor-gate">XNOR</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Welcome to Logic Gates! 🎉</h2>
+            <p class="hero-text">Discover how computers think! Logic gates are the building blocks that make everything in your computer work - from games to videos to this website!</p>
+            <div class="hero-circuit">
+                <svg width="300" height="150" viewBox="0 0 300 150">
+                    <!-- Simple animated circuit illustration -->
+                    <line x1="20" y1="40" x2="80" y2="40" stroke="#4A90E2" stroke-width="3" class="wire"/>
+                    <line x1="20" y1="80" x2="80" y2="80" stroke="#4A90E2" stroke-width="3" class="wire"/>
+                    <rect x="80" y="30" width="60" height="60" fill="#BD10E0" rx="5" class="gate-box"/>
+                    <text x="110" y="65" fill="white" font-size="16" text-anchor="middle" font-weight="bold">AND</text>
+                    <line x1="140" y1="60" x2="200" y2="60" stroke="#7ED321" stroke-width="3" class="wire active"/>
+                    <circle cx="210" cy="60" r="15" fill="#7ED321" class="output-led"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- AND Gate Section -->
+    <section id="and-gate" class="gate-section and-gate">
+        <div class="container">
+            <h2>🟣 AND Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 20 20 L 60 20 Q 90 20 90 50 Q 90 80 60 80 L 20 80 Z" 
+                                  fill="#BD10E0" stroke="#8B0AA8" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="20" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="20" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="90" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>The AND gate only says <strong>YES</strong> (outputs 1) when <strong>ALL</strong> inputs are YES (1). If any input is NO (0), the output is NO.</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">🚗</span>
+                            <p><strong>Real-World Analogy:</strong> Think of starting a car - you need BOTH the key AND gas. Missing either one? The car won't start!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> AND gates are used in password systems - you need the right username AND password to log in!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="and">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="and-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">0</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OR Gate Section -->
+    <section id="or-gate" class="gate-section or-gate">
+        <div class="container">
+            <h2>🟠 OR Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 20 20 Q 40 20 60 20 Q 90 40 90 50 Q 90 60 60 80 Q 40 80 20 80 Q 30 50 20 20 Z" 
+                                  fill="#F5A623" stroke="#D68910" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="25" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="25" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="90" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>The OR gate says <strong>YES</strong> (outputs 1) when <strong>AT LEAST ONE</strong> input is YES (1). It only outputs NO when all inputs are NO.</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">🏢</span>
+                            <p><strong>Real-World Analogy:</strong> Like two elevators - you can take EITHER one to go up. You just need one to work!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> OR gates are used in alarm systems - if ANY sensor detects motion OR a door opens, the alarm sounds!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="or">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="or-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">0</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOT Gate Section -->
+    <section id="not-gate" class="gate-section not-gate">
+        <div class="container">
+            <h2>🔴 NOT Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 20 20 L 20 80 L 70 50 Z" fill="#E94B3C" stroke="#C93B2C" stroke-width="2"/>
+                            <circle cx="75" cy="50" r="5" fill="none" stroke="#C93B2C" stroke-width="2"/>
+                            <line x1="5" y1="50" x2="20" y2="50" stroke="#666" stroke-width="3"/>
+                            <line x1="80" y1="50" x2="100" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="45" fill="#666" font-size="12">A</text>
+                            <text x="100" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>The NOT gate <strong>flips</strong> the input! If you give it 0, it outputs 1. If you give it 1, it outputs 0. It's like a reverse switch!</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">⚖️</span>
+                            <p><strong>Real-World Analogy:</strong> Like a seesaw - when one side is up, the other is down. They're always opposite!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> NOT gates are also called "inverters" and are used everywhere - even in your phone's screen brightness control!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="not">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="not-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">1</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0" class="active">
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1">
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAND Gate Section -->
+    <section id="nand-gate" class="gate-section nand-gate">
+        <div class="container">
+            <h2>🌸 NAND Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 20 20 L 60 20 Q 85 20 85 50 Q 85 80 60 80 L 20 80 Z" 
+                                  fill="#FF6B9D" stroke="#E55587" stroke-width="2"/>
+                            <circle cx="90" cy="50" r="5" fill="none" stroke="#E55587" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="20" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="20" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="95" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>NAND is "NOT AND" - it's the <strong>opposite</strong> of an AND gate! It outputs 0 only when ALL inputs are 1. Otherwise, it outputs 1.</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">🚪</span>
+                            <p><strong>Real-World Analogy:</strong> Like a door that locks ONLY when BOTH keys are turned. If either key is missing, the door stays unlocked!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> NAND gates are SUPER special - you can build ANY other gate using just NAND gates! They're the Swiss Army knife of logic!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="nand">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="nand-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">1</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOR Gate Section -->
+    <section id="nor-gate" class="gate-section nor-gate">
+        <div class="container">
+            <h2>🔵 NOR Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 20 20 Q 40 20 60 20 Q 85 40 85 50 Q 85 60 60 80 Q 40 80 20 80 Q 30 50 20 20 Z" 
+                                  fill="#50E3C2" stroke="#3BC9A8" stroke-width="2"/>
+                            <circle cx="90" cy="50" r="5" fill="none" stroke="#3BC9A8" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="25" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="25" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="95" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>NOR is "NOT OR" - it's the <strong>opposite</strong> of an OR gate! It outputs 1 only when ALL inputs are 0. If any input is 1, output is 0.</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">🛌</span>
+                            <p><strong>Real-World Analogy:</strong> Like trying to sleep - you can only sleep when there's NO noise AND NO light. Any disturbance wakes you up!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> Like NAND, you can build any logic circuit using ONLY NOR gates! Computer designers love these versatile gates!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="nor">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="nor-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">1</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- XOR Gate Section -->
+    <section id="xor-gate" class="gate-section xor-gate">
+        <div class="container">
+            <h2>💚 XOR Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 25 20 Q 45 20 65 20 Q 90 40 90 50 Q 90 60 65 80 Q 45 80 25 80 Q 35 50 25 20 Z" 
+                                  fill="#B8E986" stroke="#9FD268" stroke-width="2"/>
+                            <path d="M 15 20 Q 25 50 15 80" fill="none" stroke="#9FD268" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="30" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="30" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="90" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>XOR means "eXclusive OR" - it outputs 1 only when inputs are <strong>DIFFERENT</strong>! If both are 0 or both are 1, output is 0.</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">👫</span>
+                            <p><strong>Real-World Analogy:</strong> Like a game where you and a friend answer YES or NO. You win only if your answers are DIFFERENT!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> XOR gates are used in encryption and data transmission - they help keep your messages secret and detect errors!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="xor">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="xor-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">0</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- XNOR Gate Section -->
+    <section id="xnor-gate" class="gate-section xnor-gate">
+        <div class="container">
+            <h2>💜 XNOR Gate</h2>
+            
+            <div class="gate-content">
+                <div class="gate-explanation">
+                    <div class="gate-symbol">
+                        <svg width="120" height="100" viewBox="0 0 120 100">
+                            <path d="M 25 20 Q 45 20 65 20 Q 85 40 85 50 Q 85 60 65 80 Q 45 80 25 80 Q 35 50 25 20 Z" 
+                                  fill="#9B59B6" stroke="#7D3C98" stroke-width="2"/>
+                            <path d="M 15 20 Q 25 50 15 80" fill="none" stroke="#7D3C98" stroke-width="2"/>
+                            <circle cx="90" cy="50" r="5" fill="none" stroke="#7D3C98" stroke-width="2"/>
+                            <line x1="5" y1="35" x2="30" y2="35" stroke="#666" stroke-width="3"/>
+                            <line x1="5" y1="65" x2="30" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="95" y1="50" x2="110" y2="50" stroke="#666" stroke-width="3"/>
+                            <text x="5" y="30" fill="#666" font-size="12">A</text>
+                            <text x="5" y="60" fill="#666" font-size="12">B</text>
+                            <text x="110" y="55" fill="#666" font-size="12">OUT</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>What It Does:</h3>
+                        <p>XNOR means "eXclusive NOR" - it outputs 1 only when inputs are the <strong>SAME</strong>! If both are 0 or both are 1, output is 1. It's the opposite of XOR!</p>
+                        
+                        <div class="analogy">
+                            <span class="icon">🤝</span>
+                            <p><strong>Real-World Analogy:</strong> Like checking if two friends agree - you get a "match" only when both say YES or both say NO!</p>
+                        </div>
+                        
+                        <div class="fun-fact">
+                            <span class="icon">💡</span>
+                            <p><strong>Fun Fact:</strong> XNOR gates are used in comparators to check if two numbers are equal - perfect for password checking systems!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-area">
+                    <h3>Try It Yourself!</h3>
+                    <div class="simulator" data-gate="xnor">
+                        <div class="inputs">
+                            <div class="input-control">
+                                <span class="label">Input A:</span>
+                                <button class="toggle-btn" data-input="a">0</button>
+                            </div>
+                            <div class="input-control">
+                                <span class="label">Input B:</span>
+                                <button class="toggle-btn" data-input="b">0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="gate-visual">
+                            <canvas id="xnor-canvas" width="300" height="200"></canvas>
+                        </div>
+                        
+                        <div class="output">
+                            <span class="label">Output:</span>
+                            <div class="output-indicator">1</div>
+                        </div>
+                        
+                        <div class="controls">
+                            <button class="demo-btn">▶ Play Demo</button>
+                            <button class="reset-btn">↻ Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="truth-table">
+                        <h4>Truth Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-combo="0-0" class="active">
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                                <tr data-combo="0-1">
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-0">
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-combo="1-1">
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td class="highlight">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>🎓 Keep exploring and learning! Logic gates are everywhere in technology!</p>
+            <p>Made with ❤️ for curious minds</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/gates.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/simulator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
