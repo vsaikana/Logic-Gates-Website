@@ -1,0 +1,324 @@
+/* ========================================
+   Logic Gates Explorer - Animations
+   ======================================== */
+
+/* ===== Hero Circuit Animation ===== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.hero-circuit .wire {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-circuit .wire.active {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.hero-circuit .output-led {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.7;
+        filter: drop-shadow(0 0 5px #7ED321);
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 15px #7ED321);
+    }
+}
+
+.hero-circuit .gate-box {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ===== Button Toggle Animation ===== */
+.toggle-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Smooth color transition when toggling */
+.toggle-btn.on {
+    animation: turnOn 0.3s ease;
+}
+
+.toggle-btn.off {
+    animation: turnOff 0.3s ease;
+}
+
+@keyframes turnOn {
+    0% {
+        background-color: #9B9B9B;
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        background-color: #7ED321;
+        transform: scale(1);
+    }
+}
+
+@keyframes turnOff {
+    0% {
+        background-color: #7ED321;
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        background-color: #9B9B9B;
+        transform: scale(1);
+    }
+}
+
+/* ===== Output Indicator Animation ===== */
+.output-indicator {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.output-indicator.on {
+    animation: outputOn 0.3s ease;
+}
+
+.output-indicator.off {
+    animation: outputOff 0.3s ease;
+}
+
+@keyframes outputOn {
+    0% {
+        background-color: #9B9B9B;
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        background-color: #7ED321;
+        transform: scale(1);
+        box-shadow: 0 0 20px #7ED321;
+    }
+}
+
+@keyframes outputOff {
+    0% {
+        background-color: #7ED321;
+        transform: scale(1);
+        box-shadow: 0 0 20px #7ED321;
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        background-color: #9B9B9B;
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* ===== Signal Flow Animation (Canvas-based in JS) ===== */
+/* These are helper classes for JavaScript animations */
+.signal-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #7ED321;
+    box-shadow: 0 0 10px #7ED321;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.signal-particle.low {
+    background-color: #9B9B9B;
+    box-shadow: 0 0 5px #9B9B9B;
+}
+
+/* ===== Truth Table Row Highlight Animation ===== */
+.truth-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.truth-table tbody tr.active {
+    animation: highlightRow 0.5s ease;
+}
+
+@keyframes highlightRow {
+    0% {
+        background-color: white;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #FFF9C4;
+        transform: scale(1.02);
+    }
+    100% {
+        background-color: #FFF9C4;
+        transform: scale(1);
+    }
+}
+
+/* ===== Demo Button Animation ===== */
+.demo-btn.playing {
+    animation: playingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes playingPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===== Fade In Animation for Sections ===== */
+.gate-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Gate Symbol Hover Animation ===== */
+.gate-symbol {
+    transition: transform 0.3s ease;
+}
+
+.gate-symbol:hover {
+    transform: scale(1.05);
+}
+
+.gate-symbol svg {
+    transition: transform 0.3s ease;
+}
+
+.gate-symbol:hover svg {
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15));
+}
+
+/* ===== Navigation Link Animations ===== */
+nav a {
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* ===== Loading Animation (for future use) ===== */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #4A90E2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* ===== Particle Effect for Signals (Advanced) ===== */
+@keyframes signalFlow {
+    0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.signal-effect {
+    animation: signalFlow 0.8s ease-out forwards;
+}
+
+/* ===== Success Message Animation ===== */
+@keyframes successBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+}
+
+.success-message {
+    animation: successBounce 0.6s ease;
+}
+
+/* ===== Smooth Transitions for All Interactive Elements ===== */
+button, a, .toggle-btn, .output-indicator {
+    transition-property: transform, background-color, box-shadow, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+/* ===== Accessibility: Reduce Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

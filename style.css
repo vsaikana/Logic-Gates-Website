@@ -1,0 +1,482 @@
+/* ========================================
+   Logic Gates Explorer - Main Styles
+   ======================================== */
+
+/* ===== CSS Variables ===== */
+:root {
+    /* Color Palette */
+    --bg-light: #F8F9FF;
+    --primary-blue: #4A90E2;
+    --success-green: #7ED321;
+    --neutral-gray: #9B9B9B;
+    --text-dark: #333333;
+    --text-light: #666666;
+    
+    /* Gate Colors */
+    --and-purple: #BD10E0;
+    --and-purple-dark: #8B0AA8;
+    --or-orange: #F5A623;
+    --or-orange-dark: #D68910;
+    --not-red: #E94B3C;
+    --not-red-dark: #C93B2C;
+    --nand-pink: #FF6B9D;
+    --nand-pink-dark: #E55587;
+    --nor-teal: #50E3C2;
+    --nor-teal-dark: #3BC9A8;
+    --xor-lime: #B8E986;
+    --xor-lime-dark: #9FD268;
+    --xnor-purple: #9B59B6;
+    --xnor-purple-dark: #7D3C98;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Typography */
+    --font-heading: 'Fredoka One', cursive;
+    --font-body: 'Nunito', sans-serif;
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--primary-blue);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+strong {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===== Header & Navigation ===== */
+header {
+    background: linear-gradient(135deg, var(--primary-blue), #357ABD);
+    color: white;
+    padding: var(--spacing-md) 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    background: linear-gradient(to bottom, white, var(--bg-light));
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.hero-circuit {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* ===== Gate Sections ===== */
+.gate-section {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 3px solid #E0E0E0;
+}
+
+.gate-section:nth-child(even) {
+    background-color: white;
+}
+
+.gate-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+/* ===== Gate Explanation ===== */
+.gate-explanation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.gate-symbol {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation-text h3 {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--primary-blue);
+    padding-bottom: 0.5rem;
+}
+
+.analogy, .fun-fact {
+    background: #F0F7FF;
+    padding: var(--spacing-sm);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-blue);
+    margin-top: var(--spacing-sm);
+}
+
+.analogy .icon, .fun-fact .icon {
+    font-size: 2rem;
+    margin-right: var(--spacing-xs);
+}
+
+.analogy p, .fun-fact p {
+    margin: 0;
+    display: inline;
+}
+
+/* ===== Interactive Area ===== */
+.interactive-area {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.interactive-area h3 {
+    text-align: center;
+    color: var(--primary-blue);
+}
+
+/* ===== Simulator ===== */
+.simulator {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.input-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.input-control .label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+/* ===== Toggle Buttons ===== */
+.toggle-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--neutral-gray);
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.toggle-btn.on {
+    background-color: var(--success-green);
+}
+
+.toggle-btn.off {
+    background-color: var(--neutral-gray);
+}
+
+/* ===== Gate Visual (Canvas) ===== */
+.gate-visual {
+    margin: var(--spacing-md) 0;
+}
+
+.gate-visual canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== Output Indicator ===== */
+.output {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin: var(--spacing-md) 0;
+}
+
+.output .label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.output-indicator {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--neutral-gray);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.output-indicator.on {
+    background-color: var(--success-green);
+    box-shadow: 0 0 20px var(--success-green);
+}
+
+.output-indicator.off {
+    background-color: var(--neutral-gray);
+}
+
+/* ===== Control Buttons ===== */
+.controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.demo-btn, .reset-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.demo-btn {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.demo-btn:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.demo-btn.playing {
+    background-color: var(--not-red);
+}
+
+.reset-btn {
+    background-color: var(--neutral-gray);
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #7A7A7A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Truth Table ===== */
+.truth-table {
+    margin-top: var(--spacing-md);
+}
+
+.truth-table h4 {
+    text-align: center;
+    color: var(--primary-blue);
+}
+
+.truth-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.truth-table thead {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.truth-table th {
+    padding: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.truth-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #E0E0E0;
+}
+
+.truth-table tbody tr {
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.truth-table tbody tr:nth-child(even) {
+    background-color: #F8F8F8;
+}
+
+.truth-table tbody tr:hover {
+    background-color: #E3F2FD;
+}
+
+.truth-table tbody tr.active {
+    background-color: #FFF9C4;
+    font-weight: bold;
+    border: 2px solid var(--primary-blue);
+}
+
+.truth-table .highlight {
+    color: var(--success-green);
+    font-weight: bold;
+}
+
+/* ===== Gate-Specific Colors ===== */
+.and-gate h2 { color: var(--and-purple); }
+.or-gate h2 { color: var(--or-orange); }
+.not-gate h2 { color: var(--not-red); }
+.nand-gate h2 { color: var(--nand-pink); }
+.nor-gate h2 { color: var(--nor-teal); }
+.xor-gate h2 { color: var(--xor-lime-dark); }
+.xnor-gate h2 { color: var(--xnor-purple); }
+
+/* ===== Footer ===== */
+footer {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ===== Smooth Scrolling ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Utility Classes ===== */
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}

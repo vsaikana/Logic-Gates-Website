@@ -1,0 +1,422 @@
+/* ========================================
+   Logic Gates Explorer - Responsive Styles
+   ======================================== */
+
+/* ===== Tablet Styles (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-text {
+        font-size: 1.1rem;
+    }
+    
+    .gate-content {
+        gap: var(--spacing-md);
+    }
+}
+
+/* ===== Mobile Styles (< 768px) ===== */
+@media (max-width: 768px) {
+    /* Typography */
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+    }
+    
+    /* Header & Navigation */
+    header {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    header h1 {
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    nav {
+        gap: var(--spacing-xs);
+    }
+    
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-text {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .hero-circuit svg {
+        width: 250px;
+        height: auto;
+    }
+    
+    /* Gate Sections */
+    .gate-section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .gate-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Gate Explanation */
+    .gate-symbol {
+        padding: var(--spacing-sm);
+    }
+    
+    .gate-symbol svg {
+        width: 100px;
+        height: auto;
+    }
+    
+    .analogy, .fun-fact {
+        padding: var(--spacing-xs);
+        font-size: 0.95rem;
+    }
+    
+    .analogy .icon, .fun-fact .icon {
+        font-size: 1.5rem;
+    }
+    
+    /* Interactive Area */
+    .interactive-area {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Simulator */
+    .inputs {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+    
+    .input-control {
+        justify-content: space-between;
+        width: 100%;
+        padding: var(--spacing-xs);
+        background: #F8F8F8;
+        border-radius: 8px;
+    }
+    
+    .input-control .label {
+        font-size: 1rem;
+    }
+    
+    /* Toggle Buttons - Larger for Touch */
+    .toggle-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        min-height: 44px; /* Accessibility: minimum touch target */
+    }
+    
+    /* Gate Visual */
+    .gate-visual canvas {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+    
+    /* Output Indicator */
+    .output {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .output-indicator {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+    
+    /* Control Buttons */
+    .controls {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-xs);
+    }
+    
+    .demo-btn, .reset-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        min-height: 44px; /* Accessibility */
+    }
+    
+    /* Truth Table */
+    .truth-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .truth-table table {
+        font-size: 0.9rem;
+        min-width: 100%;
+    }
+    
+    .truth-table th,
+    .truth-table td {
+        padding: 0.5rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: var(--spacing-md) 0;
+        font-size: 0.95rem;
+    }
+    
+    /* Spacing Adjustments */
+    :root {
+        --spacing-xs: 0.4rem;
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 2.5rem;
+    }
+}
+
+/* ===== Small Mobile Styles (< 480px) ===== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.85rem;
+    }
+    
+    .gate-symbol svg {
+        width: 80px;
+    }
+    
+    .toggle-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 1.5rem;
+    }
+    
+    .output-indicator {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .gate-visual canvas {
+        max-width: 250px;
+    }
+}
+
+/* ===== Large Desktop Styles (> 1400px) ===== */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    h2 {
+        font-size: 2.25rem;
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+    
+    .gate-content {
+        gap: var(--spacing-xl);
+    }
+    
+    .gate-symbol svg {
+        width: 150px;
+        height: auto;
+    }
+}
+
+/* ===== Landscape Mobile Optimization ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .gate-section {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .hero-circuit {
+        display: none; /* Hide decorative element in landscape */
+    }
+    
+    header {
+        position: relative; /* Unstick header to save vertical space */
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    header, footer, .controls, nav {
+        display: none;
+    }
+    
+    .gate-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .gate-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .interactive-area {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* ===== High DPI / Retina Display Optimization ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp rendering on high-DPI displays */
+    .gate-visual canvas {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ===== Dark Mode Support (Future Enhancement) ===== */
+@media (prefers-color-scheme: dark) {
+    /* Uncomment to enable dark mode */
+    /*
+    :root {
+        --bg-light: #1a1a1a;
+        --text-dark: #e0e0e0;
+        --text-light: #b0b0b0;
+    }
+    
+    body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+    }
+    
+    .gate-section:nth-child(even) {
+        background-color: #222;
+    }
+    
+    .gate-symbol, .interactive-area {
+        background: #2a2a2a;
+    }
+    
+    .truth-table tbody tr {
+        background-color: #2a2a2a;
+    }
+    
+    .truth-table tbody tr:nth-child(even) {
+        background-color: #333;
+    }
+    */
+}
+
+/* ===== Touch Device Optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    nav a {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .toggle-btn {
+        min-width: 60px;
+        min-height: 60px;
+    }
+    
+    .demo-btn, .reset-btn {
+        min-height: 50px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    nav a:hover,
+    .toggle-btn:hover,
+    .demo-btn:hover,
+    .reset-btn:hover {
+        transform: none;
+    }
+    
+    /* Add active states for touch feedback */
+    nav a:active {
+        transform: scale(0.95);
+    }
+    
+    .demo-btn:active,
+    .reset-btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ===== Accessibility: High Contrast Mode ===== */
+@media (prefers-contrast: high) {
+    .toggle-btn,
+    .output-indicator,
+    .demo-btn,
+    .reset-btn {
+        border: 2px solid currentColor;
+    }
+    
+    .truth-table th,
+    .truth-table td {
+        border: 2px solid currentColor;
+    }
+}
